@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import PrivateRoute from "../routes/PrivateRoute";
-import { Login, Movies } from "../pages";
+import ProtectedRoute from "../routes/ProtectedRoute";
+import { Login, Movies, Signup } from "../pages";
 
 const App = () => (
   <Router>
@@ -9,9 +9,12 @@ const App = () => (
       <Route path="/login">
         <Login />
       </Route>
-      <PrivateRoute path="/movies">
+      <Route path="/signup">
+        <Signup />
+      </Route>
+      <ProtectedRoute path="/movies">
         <Movies />
-      </PrivateRoute>
+      </ProtectedRoute>
     </Switch>
   </Router>
 );
