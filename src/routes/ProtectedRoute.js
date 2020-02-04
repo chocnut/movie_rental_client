@@ -1,14 +1,17 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import Layout from "../components/Layout";
 
-const ProtectedRoute = ({ children, isAuthenticated, ...rest }) => {
+const ProtectedRoute = ({ component: Component, isAuthenticated, ...rest }) => {
   const authToken = localStorage.getItem("authToken");
   return (
     <Route
       {...rest}
       render={({ location }) =>
         authToken ? (
-          children
+          <Layout>
+            <Component />
+          </Layout>
         ) : (
           <Redirect
             to={{

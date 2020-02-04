@@ -10,7 +10,7 @@ const Login = ({ history }) => {
   const submitForm = async () => {
     const response = await doLogin({ user: { email, password } });
     localStorage.setItem("authToken", response.token);
-    history.push("/movies");
+    history.push("/");
   };
 
   const handleSubmit = e => {
