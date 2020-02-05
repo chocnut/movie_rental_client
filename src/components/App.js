@@ -10,6 +10,7 @@ const App = () => (
       <Route path="/logout" component={Logout} />
       <Route path="/signup" component={Signup} />
       <ProtectedRoute path="/" component={Movies} exact />
+      <ProtectedRoute path="/movies" component={Movies} exact />
       <ProtectedRoute path="/rentals" component={Rentals} exact />
     </Switch>
   </Router>

@@ -6,24 +6,21 @@ const Layout = ({ children }) => (
   <>
     <Menu fixed="top" inverted>
       <Container>
-        <Menu.Item as="a" header>
-          <Link to="/">Movie Rental</Link>
+        <Menu.Item as={Link} to="/" header>
+          Movie Rental
         </Menu.Item>
-        <Menu.Item as="a">
-          <Link to="/rentals">My Rentals</Link>
+        <Menu.Item as={Link} to="/rentals">
+          My Rentals
         </Menu.Item>
         <Menu.Menu position="right">
-          <Menu.Item name="logout">
-            <Link to="/logout">Logout</Link>
+          <Menu.Item as={Link} to="/logout" name="logout">
+            Logout
           </Menu.Item>
         </Menu.Menu>
       </Container>
     </Menu>
 
-    <Container text style={{ marginTop: "7em" }}>
-      <Header as="h1">Semantic UI React Fixed Template</Header>
-      {children}
-    </Container>
+    <Container style={{ marginTop: "7em" }}>{children}</Container>
   </>
 );
 
