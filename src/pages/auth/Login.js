@@ -9,12 +9,13 @@ const Login = ({ history }) => {
 
   const submitForm = async () => {
     try {
-      const { response } = await doLogin({ user: { email, password } });
+      const response = await doLogin({ user: { email, password } });
       if (response) {
         localStorage.setItem("authToken", response.token);
         history.push("/");
+      } else {
+        history.push("/login");
       }
-      history.push("/login");
     } catch (e) {
       console.log(e);
       history.push("/login");
