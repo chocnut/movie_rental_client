@@ -6,7 +6,7 @@ const Layout = ({ children }) => (
   <>
     <Menu fixed="top" inverted>
       <Container>
-        <Menu.Item as={Link} to="/" header>
+        <Menu.Item as={Link} to="/movies" header>
           Movie Rental
         </Menu.Item>
         <Menu.Item as={Link} to="/rentals">

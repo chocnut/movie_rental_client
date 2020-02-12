@@ -8,9 +8,17 @@ const Login = ({ history }) => {
   const [password, setPassword] = useState(null);
 
   const submitForm = async () => {
-    const response = await doLogin({ user: { email, password } });
-    localStorage.setItem("authToken", response.token);
-    history.push("/");
+    try {
+      const { response } = await doLogin({ user: { email, password } });
+      if (response) {
+        localStorage.setItem("authToken", response.token);
+        history.push("/");
+      }
+      history.push("/login");
+    } catch (e) {
+      console.log(e);
+      history.push("/login");
+    }
   };
 
   const handleSubmit = e => {
