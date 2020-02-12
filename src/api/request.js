@@ -11,11 +11,13 @@ const getJson = async resp => {
   });
 };
 
+const url = process.env.REACT_APP_API_URL;
+
 const getToken = () => localStorage.getItem("authToken");
 
 const request = async ({ path, method = "GET", headers = {}, data }) => {
   const token = getToken();
-  const response = await fetch(`http://localhost:3000/api/v1/${path}`, {
+  const response = await fetch(`${url}/api/v1/${path}`, {
     method,
     headers: {
       Accept: "application/json",
